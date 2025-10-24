@@ -69,4 +69,21 @@ public class Validations {
         return department != null && !department.trim().isEmpty();
     }
 
+    public static boolean validateID(int id) {
+        return id <= 999999 && id > 99;
+    }
+
+    public static boolean validateID(String id) { //overload
+        if (id == null || id.trim().isEmpty()) {
+            return false;
+        }
+        id = id.trim();
+        try{
+            int num = Integer.parseInt(id);
+            return num <= 999999 && num > 99;
+        } catch (NumberFormatException e) { //parse failed
+            return false;
+        }
+    }
+
 }
