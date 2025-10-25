@@ -38,13 +38,24 @@ public class AddPanelController {
             return;
         }
 
+        if(!Validations.validateDepartment(department))
+        {
+            JOptionPane.showMessageDialog(null, "Invalid department. Department cannot be empty." , "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        if(!Validations.validateGpa(gpa))
+        {
+            JOptionPane.showMessageDialog(null, "Invalid GPA. GPA must be a number between 0.00 and 4.00.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
         try
         {
-            String id = ID;
             int newage = Integer.parseInt(age);
             double newgpa = Double.parseDouble(gpa);
 
-            Student student = new Student(id, name, newage, gender, department, newgpa);
+            Student student = new Student(ID, name, newage, gender, department, newgpa);
             database.addStudent(student);
             }
             catch (NumberFormatException ex)
