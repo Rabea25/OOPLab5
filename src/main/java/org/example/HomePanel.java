@@ -50,12 +50,6 @@ public class HomePanel extends JFrame {
                 //switchPanel(new EditPanel(db,));
             }
         });
-        deleteButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //switchPanel(new DeletePanel(db, ));
-            }
-        });
         logoutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
