@@ -1,0 +1,2 @@
+1231,Ahmad,male,electrical,4.0,20
+122,Ahmad,male,electrical,2.0,201
