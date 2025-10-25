@@ -32,6 +32,12 @@ public class AddPanelController {
             return;
         }
 
+        if(!Validations.validateName(name))
+        {
+            JOptionPane.showMessageDialog(null, "Invalid name. must enter full name consisting of english letters only.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
         if(!Validations.validateAge(age))
         {
             JOptionPane.showMessageDialog(null, "Invalid age. Age must be a number between 5 and 30.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -49,18 +55,28 @@ public class AddPanelController {
             JOptionPane.showMessageDialog(null, "Invalid GPA. GPA must be a number between 0.00 and 4.00.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-
+        if(!Validations.validateID(Integer.parseInt(ID))){
+            JOptionPane.showMessageDialog(null, "Invalid ID. ID must be a number between 100 and 99999", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         try
         {
             int newage = Integer.parseInt(age);
-            double newgpa = Double.parseDouble(gpa);
+            float newgpa = Float.parseFloat(gpa);
+            int intid = Integer.parseInt(ID);
+
+            if(database.findStudent(intid)!=null){
+                JOptionPane.showMessageDialog(null, "ID already in use.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
 
             Student student = new Student(ID, name, newage, gender, department, newgpa);
             database.addStudent(student);
             }
             catch (NumberFormatException ex)
             {
-                JOptionPane.showMessageDialog(null,"Age & GPA must be numbers.", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null,"Age, ID & GPA must be numbers.", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }

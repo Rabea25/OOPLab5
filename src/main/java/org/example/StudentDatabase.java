@@ -1,13 +1,12 @@
 package org.example;
 
 import java.io.*;
-import java.sql.Array;
 import java.util.*;
 import javax.swing.*;
 
 public class StudentDatabase {
-    private static final String filename = "Students.text";
-    private List<Student> students = new ArrayList<>();
+    private static final String filename = "Students.txt";
+    private ArrayList<Student> students = new ArrayList<>();
 
     public StudentDatabase()
     {
@@ -31,12 +30,13 @@ public class StudentDatabase {
                     students.remove(i);
                     saveStudents();
                     JOptionPane.showMessageDialog(null, "Student deleted successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+                    return;
                 }
         }
         JOptionPane.showMessageDialog(null, "Student not found. ", "Error", JOptionPane.ERROR_MESSAGE);
     }
 
-    public void updateStudent(Student updatedstudent)
+    public void editStudent(Student updatedstudent)
     {
         for(Student s : students)
         {
@@ -56,7 +56,7 @@ public class StudentDatabase {
     }
 
 
-    public List<Student> getStudents() { return new ArrayList<>(students); }
+    public ArrayList<Student> getStudents() { return new ArrayList<>(students); }
 
 
     public Student findStudent(int id)
@@ -66,9 +66,9 @@ public class StudentDatabase {
     }
 
 
-    public List<Student> searchName(String name)
+    public ArrayList<Student> searchName(String name)
     {
-        List<Student> result = new ArrayList<>();
+        ArrayList<Student> result = new ArrayList<>();
         for (Student s: students)
         {
             if(s.getName().toLowerCase().contains(name.toLowerCase())) result.add(s);
@@ -82,7 +82,7 @@ public class StudentDatabase {
         {
             for (Student s : students)
             {
-                writes.write(s.toFileString());
+                writes.write(s.lineRepresentation());
                 writes.newLine();
             }
         } catch(IOException e)
@@ -98,7 +98,7 @@ public class StudentDatabase {
         {
             String line;
             while ((line = reads.readLine()) != null)
-                students.add(Student.fromFileString(line));
+                students.add(Student.lineToStudent(line));
         } catch (IOException e)
         {
             JOptionPane.showMessageDialog(null, "Error opening file. File might not exist.", "Error", JOptionPane.ERROR_MESSAGE);

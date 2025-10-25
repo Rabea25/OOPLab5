@@ -33,13 +33,15 @@ public class HomePanel extends JFrame {
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //switchPanel( new AddPanel());
+                AddPanel addPanel = new AddPanel();
+                AddPanelController c = new AddPanelController(addPanel, db);
+                switchPanel(addPanel);
             }
         });
         viewButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                switchPanel(new ViewPanel(db));
+                switchPanel(new ViewPanel(db, HomePanel.this));
             }
         });
         searchButton.addActionListener(new ActionListener() {
@@ -65,14 +67,14 @@ public class HomePanel extends JFrame {
                 loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 loginFrame.setSize(500, 400);
                 loginFrame.setLocationRelativeTo(null);
-                loginFrame.setContentPane(new LoginPanel().getRootPanel());
+                loginFrame.setContentPane(new loginPanel(db).getRootPanel());
                 loginFrame.setVisible(true);
 
             }
         });
     }
 
-    private void switchPanel(JPanel panel) {
+    public void switchPanel(JPanel panel) {
         contentPanel.removeAll();
         contentPanel.setLayout(new BorderLayout());
         contentPanel.add(panel, BorderLayout.CENTER);
@@ -80,5 +82,8 @@ public class HomePanel extends JFrame {
         contentPanel.repaint();
     }
 
+    public JPanel getRootPanel() {
+        return rootPanel;
+    }
 
 }

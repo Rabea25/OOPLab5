@@ -1,19 +1,16 @@
 package org.example;
-import java.io.*;
-import java.util.*;
 
 public class Student {
-    private String id;
-    private String name;
+    private String studentId;
+    private String fullName;
     private int age;
     private String gender;
     private String department;
-    private double gpa;
+    private float gpa;
 
-    public Student(String id, String name, int age, String gender, String
-            department, double gpa){
-        this.id = id ;
-        this.name = name ;
+    public Student(String studentId, String fullName, int age, String gender, String department, float gpa){
+        this.studentId = studentId ;
+        this.fullName = fullName ;
         this.age = age ;
         this.gender = gender ;
         this.department = department ;
@@ -21,22 +18,23 @@ public class Student {
     }
 
 
-   public String toFileString() {
-        return id + "," + name + "," + age + "," + gender + "," + department + "," + gpa;
+   public String lineRepresentation() {
+        return studentId + "," + fullName + "," + age + "," + gender + "," + department + "," + gpa;
    }
 
-    public static Student fromFileString(String line){
+    public static Student lineToStudent(String line){
         String[] parts = line.split(",");
         if (parts.length != 6){
             System.out.println("String must have 6 sections");
-            return null ;}
+            return null ;
+        }
 
         String id = parts[0];
         String name =parts[1];
         int age = Integer.parseInt(parts[2]);
         String gender = parts[3];
         String department = parts[4];
-        double gpa = Double.parseDouble(parts[5]);
+        float gpa = Float.parseFloat(parts[5]);
         return new Student(id, name, age , gender,department, gpa);
     }
 
@@ -45,16 +43,16 @@ public class Student {
 
     // Getters and Setters
     public String getId() {
-        return id;
+        return studentId;
     }
     public void setId(String id) {
-        this.id = id;
+        this.studentId = id;
     }
     public String getName() {
-        return name;
+        return fullName;
     }
     public void setName(String name) {
-        this.name = name;
+        this.fullName = name;
     }
     public int getAge() {
         return age;
@@ -73,10 +71,10 @@ public class Student {
     public void setDepartment(String department) {
         this.department = department;
     }
-    public double getGpa() {
+    public float getGpa() {
         return gpa;
     }
-    public void setGpa(double gpa) {
+    public void setGpa(float gpa) {
         this.gpa = gpa;
     }
 }
