@@ -8,7 +8,7 @@ public class AddPanel extends JPanel {
         JTextField name = new JTextField(20);
         JTextField age = new JTextField(5);
         JComboBox<String> gender = new JComboBox<>(new String[]{"Male", "Female"});
-        JTextField department = new JTextField(15);
+        JComboBox<String> department = new JComboBox<>(new String[]{"Electrical Engineering", "Mechanical Engineering", "Computer Engineering", "Civil Engineering", "Electronics & Communication Engineering", "Architectural Engineering"});
         JTextField gpa = new JTextField(5);
         JButton submit = new JButton("Add Student");
 

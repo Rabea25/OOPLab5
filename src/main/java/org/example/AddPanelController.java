@@ -23,10 +23,10 @@ public class AddPanelController {
         String name = panel.name.getText().trim();
         String age = panel.age.getText().trim();
         String gender = (String) panel.gender.getSelectedItem();
-        String department = panel.department.getText().trim();
+        String department = (String) panel.department.getSelectedItem();
         String gpa = panel.gpa.getText().trim();
 
-        if(ID.isEmpty() || name.isEmpty() || age.isEmpty() || department.isEmpty() || gpa.isEmpty())
+        if(ID.isEmpty() || name.isEmpty() || age.isEmpty() || gpa.isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Please fill in all the fields. ");
             return;
@@ -41,12 +41,6 @@ public class AddPanelController {
         if(!Validations.validateAge(age))
         {
             JOptionPane.showMessageDialog(null, "Invalid age. Age must be a number between 5 and 30.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        if(!Validations.validateDepartment(department))
-        {
-            JOptionPane.showMessageDialog(null, "Invalid department. Department cannot be empty." , "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
