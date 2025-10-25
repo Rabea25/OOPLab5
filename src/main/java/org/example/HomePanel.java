@@ -1,9 +1,16 @@
 package org.example;
+import com.intellij.uiDesigner.core.GridConstraints;
+import com.intellij.uiDesigner.core.GridLayoutManager;
+
 import javax.swing.*;
+import javax.swing.plaf.FontUIResource;
+import javax.swing.text.StyleContext;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Locale;
 
-public class HomePanel {
+public class HomePanel extends JFrame {
     private JLabel title;
     private JButton homeButton;
     private JButton logoutButton;
@@ -18,7 +25,10 @@ public class HomePanel {
     private JPanel rootPanel;
 
 
-    public HomePanel() {
+    public HomePanel(StudentDatabase db) {
+        //$$$setupUI$$$();
+        this.setContentPane(rootPanel);
+
         homeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -28,25 +38,25 @@ public class HomePanel {
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                switchPanel(AddPanel);
+                //switchPanel(AddPanel);
             }
         });
         editDeleteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                switchPanel(EditDeletePanel);
+                //switchPanel(EditDeletePanel);
             }
         });
         viewButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                switchPanel(ViewContent);
+                switchPanel(new ViewPanel(db));
             }
         });
         searchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                switchPanel(SearchPanel);
+                //switchPanel(SearchPanel);
             }
         });
         logoutButton.addActionListener(new ActionListener() {
@@ -60,11 +70,11 @@ public class HomePanel {
 
     private void switchPanel(JPanel panel) {
         contentPanel.removeAll();
-        contentPanel.add(panel);
+        contentPanel.setLayout(new BorderLayout());
+        contentPanel.add(panel, BorderLayout.CENTER);
         contentPanel.revalidate();
         contentPanel.repaint();
     }
-
 
 
 }
