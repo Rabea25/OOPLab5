@@ -20,26 +20,6 @@ public class Student {
         this.gpa = gpa ;
     }
 
-    public boolean validateData(){
-        if(id == null || id.length()<3 || id.length()>6){
-            return false ;
-        }
-        if (name == null || name.isEmpty() ){
-            return false ;
-        }
-        if (age < 0 || age > 80) {
-            return false ;
-        }
-        if (!gender.equalsIgnoreCase("Male")  && !gender.equalsIgnoreCase("Female") ){
-            return false ;
-        }
-        if (department == null || department.isEmpty()){
-            return false ;
-        }
-        if (gpa < 0.0 || gpa > 4.0){
-            return false ;
-        }
-    return true ;}
 
    public String toFileString() {
         return id + "," + name + "," + age + "," + gender + "," + department + "," + gpa;
