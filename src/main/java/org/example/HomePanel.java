@@ -47,7 +47,7 @@ public class HomePanel extends JFrame {
         searchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //switchPanel(new EditPanel(db,));
+                switchPanel(new SearchPanel(db, HomePanel.this));
             }
         });
         logoutButton.addActionListener(new ActionListener() {

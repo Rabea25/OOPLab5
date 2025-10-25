@@ -5,6 +5,8 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class SearchPanel extends JPanel{
     private JPanel panel1;
@@ -47,6 +49,16 @@ public class SearchPanel extends JPanel{
                     @Override
                     public boolean isCellEditable(int row, int column) {return false;} //khleeh view only
                 });
+            }
+        });
+        resultsTable.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int row = resultsTable.getSelectedRow();
+                if(e.getClickCount()==2 && row!=-1){
+                    String id = (String) resultsTable.getModel().getValueAt(row, 0);
+                    homePanel.switchPanel(new EditPanel(db, id, homePanel));
+                }
             }
         });
     }
