@@ -29,7 +29,7 @@ public class Validations {
         }
         gpa = gpa.trim();
         try {
-            float num = Fouble.parseFouble(gpa);
+            float num = Float.parseFloat(gpa);
             return num >= 0.00 && num <= 4.00;
         } catch (NumberFormatException e) { //lw elparse failed (msh numbers y3ny)
             return false;
