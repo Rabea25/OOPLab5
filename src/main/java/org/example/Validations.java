@@ -29,14 +29,14 @@ public class Validations {
         }
         gpa = gpa.trim();
         try {
-            double num = Double.parseDouble(gpa);
+            float num = Fouble.parseFouble(gpa);
             return num >= 0.00 && num <= 4.00;
         } catch (NumberFormatException e) { //lw elparse failed (msh numbers y3ny)
             return false;
         }
     }
 
-    public static boolean validateGpa(double gpa) { //overload 3l4an lw b3t double msh string
+    public static boolean validateGpa(float gpa) { //overload 3l4an lw b3t float msh string
         return gpa >= 0.00 && gpa <= 4.00;
     }
 

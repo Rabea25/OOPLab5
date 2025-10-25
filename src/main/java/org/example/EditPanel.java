@@ -58,9 +58,9 @@ public class EditPanel extends JPanel {
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String name = newName.getText();
-                String age = newAge.getText();
-                String gpa = newGPA.getText();
+                String name = newName.getText().trim();
+                String age = newAge.getText().trim();
+                String gpa = newGPA.getText().trim();
                 if(!Validations.validateName(name)) {
                     JOptionPane.showMessageDialog(null, "Invalid Name.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
