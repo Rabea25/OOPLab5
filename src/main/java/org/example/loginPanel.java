@@ -26,13 +26,13 @@ public class loginPanel {
             if (username.equalsIgnoreCase("1") && password.equals("1")) {
                 JOptionPane.showMessageDialog(frame, "Going to home page", "Login Successful", JOptionPane.INFORMATION_MESSAGE);
                 JFrame currentFrame = (JFrame) SwingUtilities.getWindowAncestor(Loginpanel);
-                   currentFrame.dispose();
+                currentFrame.dispose();
 
-                JFrame homeFrame = new JFrame("Student Management System");
+                JFrame homeFrame = new HomePanel(db);
                 homeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 homeFrame.setSize(900, 600);
                 homeFrame.setLocationRelativeTo(null);
-                homeFrame.setContentPane(new HomePanel(db).getRootPanel());
+                //homeFrame.setContentPane(new HomePanel(db).getRootPanel());
                 homeFrame.setVisible(true);
 
             } else {

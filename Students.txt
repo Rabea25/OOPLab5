@@ -1,6 +1,5 @@
 1231,Ahmad Rabea,20,Male,Electrical Engineering,4.0
 123,Ahmad Rabea,20,Male,Civil Engineering,2.9
 1232,Ahmad Rabea,20,Male,Civil Engineering,2.9
-1233,Ahmad Rabea,21,Male,Architectural Engineering,4.0
+1233,Ahmad Rabeaa,21,Male,Architectural Engineering,4.0
 1234,Ahmad Rabea,19,Male,Electrical Engineering,3.11
-100,Ahmad R,23,Female,Electrical Engineering,2.0

@@ -76,6 +76,14 @@ public class StudentDatabase {
         return result;
     }
 
+    public ArrayList<Student> searchId(String partialId){
+        ArrayList<Student> result = new ArrayList<>();
+        for(Student s : students){
+            if(s.getId().contains(partialId)) result.add(s);
+        }
+        return result;
+    }
+
     private void saveStudents()
     {
         try (BufferedWriter writes = new BufferedWriter(new FileWriter(filename)))

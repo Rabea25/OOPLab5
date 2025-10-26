@@ -20,7 +20,6 @@ public class SearchPanel extends JPanel{
         this.setLayout(new BorderLayout());
         this.add(panel1, BorderLayout.CENTER);
 
-
         searchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -29,10 +28,7 @@ public class SearchPanel extends JPanel{
                 boolean isId = true;
                 for(char c:query.toCharArray()) if(!Character.isDigit(c)) isId = false;
                 Student[] students = {};
-                if(isId) {
-                    Student s = db.findStudent(Integer.parseInt(query));
-                    if(s!=null) students = new Student[]{s};
-                }
+                if(isId) students = db.searchId(query).toArray(new Student[0]);
                 else students = db.searchName(query).toArray(new Student[0]);
 
                 Object[][] data = new Object[students.length][columns.length];

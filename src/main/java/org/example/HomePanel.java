@@ -54,15 +54,19 @@ public class HomePanel extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(contentPanel, "Logging out....");
-                JFrame currentFrame = (JFrame) SwingUtilities.getWindowAncestor(contentPanel);
-                currentFrame.dispose();
+                //JFrame currentFrame = (JFrame) SwingUtilities.getWindowAncestor(contentPanel);
+                //currentFrame.dispose();
+                HomePanel.this.dispose();
 
-                JFrame loginFrame = new JFrame("Login");
-                loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                loginFrame.setSize(500, 400);
-                loginFrame.setLocationRelativeTo(null);
-                loginFrame.setContentPane(new loginPanel(db).getRootPanel());
-                loginFrame.setVisible(true);
+
+                loginPanel loginpanel = new loginPanel(db);
+                //login panel already creates its own frame, this causes there an additional frame that just stays
+//                JFrame loginFrame = new JFrame("Login");
+//                loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//                loginFrame.setSize(500, 400);
+//                loginFrame.setLocationRelativeTo(null);
+//                loginFrame.setContentPane(new loginPanel(db).getRootPanel());
+//                loginFrame.setVisible(true);
 
             }
         });
