@@ -18,7 +18,8 @@
           </grid>
         </constraints>
         <properties>
-          <background color="-3355444"/>
+          <background color="-1"/>
+          <foreground color="-1"/>
           <text value="Username:"/>
         </properties>
       </component>
@@ -29,7 +30,8 @@
           </grid>
         </constraints>
         <properties>
-          <background color="-3355444"/>
+          <background color="-1"/>
+          <foreground color="-1"/>
           <text value="Password"/>
         </properties>
       </component>
@@ -41,7 +43,7 @@
         </constraints>
         <properties>
           <background color="-13816531"/>
-          <foreground color="-26624"/>
+          <foreground color="-1"/>
           <horizontalAlignment value="10"/>
         </properties>
       </component>
@@ -62,7 +64,7 @@
         </constraints>
         <properties>
           <background color="-13816531"/>
-          <foreground color="-26624"/>
+          <foreground color="-1"/>
         </properties>
       </component>
     </children>

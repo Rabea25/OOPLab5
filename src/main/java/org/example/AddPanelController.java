@@ -65,7 +65,7 @@ public class AddPanelController {
             }
 
 
-            Student student = new Student(ID, name, newage, gender, department, newgpa);
+            Student student = new Student(String.valueOf(intid), name, newage, gender, department, newgpa);
             database.addStudent(student);
             }
             catch (NumberFormatException ex)
